@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS paytokens;
+DROP EXTENSION IF EXISTS "uuid-ossp";
