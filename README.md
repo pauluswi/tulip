@@ -6,6 +6,7 @@ A transactional-based token usually used for transactions at merchant or retail 
 Tulip will provide payment token service like generate a transaction-based token, validate the token and query all payment tokens based on customer ID.
 This token can be used for one specific transaction only.
 The token format is 6 digit of numeric data type and has an expiration date time.
+To secure data transmission between parties, we use JSON Web Token (JWT) Authentication.
 
 ## Project Layout
 
@@ -123,7 +124,7 @@ make migrate-reset
 ```
 
 
-### Managing Configurations
+## Managing Configurations
 
 The application configuration is represented in `internal/config/config.go`. When the application starts,
 it loads the configuration from a configuration file as well as environment variables. The path to the configuration 
