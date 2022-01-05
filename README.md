@@ -3,7 +3,8 @@ Is a microservice which provides payment token service for application users.
 
 ## Description
 A transactional-based token usually used for transactions at merchant or retail store such as purchasing goods and use ewallet as a payment method. The customer's ewallet app will produce a payment token and merchant can use it to initiate payment processing.
-Tulip will provide payment token service like generate a transaction-based token and this token can be used for one specific transaction only, validate the token and query all payment tokens based on customer ID.
+Tulip will provide payment token service like generate a transaction-based token, validate the token and query all payment tokens based on customer ID.
+This token can be used for one specific transaction only.
 The token format is 6 digit of numeric data type and has an expiration date time.
 
 ## Project Layout
@@ -65,9 +66,9 @@ It provides the following endpoints:
 
 * `GET /healthcheck`: a healthcheck service provided for health checking purpose (needed when implementing a server cluster)
 * `POST /v1/login`: authenticates a user and generates a JWT
-* `POST /v1/generate`: xxxx
-* `POST /v1/validate`: xxxx
-* `GET /v1/getpaytokens/:customer_id`: xxx
+* `POST /v1/generate`: generate a 6 digit of numeric token
+* `POST /v1/validate`: validate the token whether still valid and not expired
+* `GET /v1/getpaytokens/:customer_id`:  return all payment(s) token belong to a customer
 
 Try the URL `http://localhost:8080/healthcheck` in a browser, and you should see something like `"OK v1.0.0"` displayed.
 
@@ -97,7 +98,7 @@ curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJle
 
 ## Updating Database Schema
 
-The starter kit uses [database migration](https://en.wikipedia.org/wiki/Schema_migration) to manage the changes of the 
+We use [database migration](https://en.wikipedia.org/wiki/Schema_migration) to manage the changes of the 
 database schema over the whole project development phase. The following commands are commonly used with regard to database
 schema changes:
 
