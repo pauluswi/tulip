@@ -3,10 +3,8 @@ Is a microservice which provides payment token service for application users.
 
 ## Description
 A transactional-based token usually used for transactions at merchant or retail store such as purchasing goods and use ewallet as a payment method. The customer's ewallet app will produce a payment token and merchant can use it to initiate payment processing.
-Tulip will provide payment token service like generate a transaction-based token, validate the token and query all payment tokens based on customer ID.
-This token can be used for one specific transaction only.
-The token format is 6 digit of numeric data type and has an expiration date time.
-To secure data transmission between parties, we use JSON Web Token (JWT) Authentication.
+
+Tulip will provide payment token service like generate a transaction-based token, validate the token and query all payment tokens based on customer ID. This token can be used for one specific transaction only. The token format is 6 digit of numeric data type and has an expiration date time. To secure data transmission between parties, we use JSON Web Token (JWT) Authentication.
 
 ## Project Layout
 
