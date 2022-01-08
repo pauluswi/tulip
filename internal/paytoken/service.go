@@ -10,6 +10,7 @@ import (
 	"github.com/pauluswi/tulip/internal/entity"
 	generator "github.com/pauluswi/tulip/pkg/generator"
 	"github.com/pauluswi/tulip/pkg/log"
+	"github.com/pauluswi/tulip/pkg/validator"
 )
 
 // Service encapsulates usecase logic for albums.
@@ -60,6 +61,11 @@ func (s service) Generate(ctx context.Context, req entity.InputGenerate) (out en
 	}()
 
 	for i := 0; i < 5; i++ {
+		err = validator.ValidateWithOpts(req, validator.Opts{Mode: validator.ModeVerbose})
+		if err != nil {
+			err = fmt.Errorf("%w: %s", ErrValidation, err)
+			return entity.OutGenerate{}, err
+		}
 
 		// ** I use a very simple algorithm to generate payment token
 		// ** in real world the algorithm must be more details and secure
@@ -89,6 +95,12 @@ func (s service) Generate(ctx context.Context, req entity.InputGenerate) (out en
 		paytoken.CreatedAt = now
 		paytoken.UpdatedAt = now
 
+		err = validator.ValidateWithOpts(paytoken, validator.Opts{Mode: validator.ModeVerbose})
+		if err != nil {
+			err = fmt.Errorf("%w: %s", ErrValidation, err)
+			return entity.OutGenerate{}, err
+		}
+
 		err = s.repo.Save(ctx, *paytoken)
 		if err != nil {
 			if errors.Is(err, entity.ErrDuplicateTokenPerDate) {
@@ -117,6 +129,12 @@ func (s service) Validate(ctx context.Context, req entity.InputValidate) (out en
 			s.logger.Error(ctx, err.Error())
 		}
 	}()
+
+	err = validator.ValidateWithOpts(req, validator.Opts{Mode: validator.ModeCompact})
+	if err != nil {
+		err = fmt.Errorf("%w: %s", ErrValidation, err)
+		return
+	}
 
 	// Find today token only,
 	// separate select and update query since select assumed faster than update with no matching records

@@ -7,6 +7,7 @@ require (
 	github.com/go-ozzo/ozzo-dbx v1.5.0
 	github.com/go-ozzo/ozzo-routing/v2 v2.3.0
 	github.com/go-ozzo/ozzo-validation/v4 v4.1.0
+	github.com/go-playground/validator/v10 v10.10.0
 	github.com/google/uuid v1.1.1
 	github.com/lib/pq v1.2.0
 	github.com/qiangxue/go-env v1.0.0

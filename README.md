@@ -85,13 +85,13 @@ curl -X GET -H "Authorization: Bearer ...JWT token here..." http://localhost:808
 # end example 
 
 # with the above JWT token, hit a endpoint to generate a payment token
-curl -X POST -H "Content-Type: application/json" -d '{"customer_id": "08110001"}' -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDE0NjQ2OTksImlkIjoiMTAwIiwibmFtZSI6ImRlbW8ifQ.WYS5mX_UGUWu4nf_u-FHBpkLKKSf2YL3xwdBzqooYbU" http://localhost:8080/v1/generate
+curl -X POST -H "Content-Type: application/json" -d '{"customer_id": "08110001"}' -H "Authorization: Bearer ...JWT token here..." http://localhost:8080/v1/generate
 
 # with the above JWT token, hit a endpoint to validate a payment token
-curl -X POST -H "Content-Type: application/json" -d '{“token”: "343758"}' -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDE0NjQ2OTksImlkIjoiMTAwIiwibmFtZSI6ImRlbW8ifQ.WYS5mX_UGUWu4nf_u-FHBpkLKKSf2YL3xwdBzqooYbU" http://localhost:8080/v1/validate
+curl -X POST -H "Content-Type: application/json" -d '{"token": "343758"}' -H "Authorization: Bearer ...JWT token here..." http://localhost:8080/v1/validate
 
 # with the above JWT token, hit a endpoint to get all payment token for a specific customer
-curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDE0NjQ2OTksImlkIjoiMTAwIiwibmFtZSI6ImRlbW8ifQ.WYS5mX_UGUWu4nf_u-FHBpkLKKSf2YL3xwdBzqooYbU" http://localhost:8080/v1/getpaytokens/08110001
+curl -X GET -H "Authorization: Bearer ...JWT token here..." http://localhost:8080/v1/getpaytokens/<customerid>
 
 ```
 

@@ -12,7 +12,7 @@ import (
 // PayToken struct is defined here
 type PayToken struct {
 	ID         string    `db:"id" validate:"required,uuid"`
-	Token      string    `db:"token" validate:"required,max=10,startswith=99"`
+	Token      string    `db:"token" validate:"required,max=10"`
 	TokenDate  time.Time `db:"token_date" validate:"required"`
 	CustomerID string    `db:"customer_id" validate:"required"`
 	ValidUntil time.Time `db:"valid_until" validate:"required"`
