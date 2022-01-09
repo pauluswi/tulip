@@ -31,7 +31,7 @@ func Test_service_TokenCycle(t *testing.T) {
 	// token validation
 	val, err := s.Validate(ctx, entity.InputValidate{Token: token})
 	assert.Nil(t, err)
-	assert.Equal(t, "081100099", val.CustomerID)
+	assert.Equal(t, "6281100099", val.CustomerID)
 	assert.Equal(t, false, val.IsExpired)
 
 	//get all tokens
