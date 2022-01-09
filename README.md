@@ -2,6 +2,10 @@
 
 Is a microservice which provides payment token service for application users.
 
+![Build](https://github.com/pauluswi/tulip/actions/workflows/build.yml/badge.svg)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
 ## Description
 
 A transactional-based token usually used for transactions at merchant or retail store such as purchasing goods and use ewallet as a payment method. The customer's ewallet app will produce a payment token and merchant can use it to initiate payment processing.
