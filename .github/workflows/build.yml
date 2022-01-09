@@ -22,7 +22,7 @@ jobs:
       run: go build -v ./...
 
     - name: Test
-      run: go test -v ./... | grep -v "repository_.go" -covermode=count -coverprofile=coverage.out
+      run: go test -v ./... | grep -v "repository_.go" | -covermode=count -coverprofile=coverage.out
           go tool cover -func=coverage.out -o=coverage.out
 
     - name: Go Coverage Badge
