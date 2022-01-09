@@ -22,8 +22,9 @@ jobs:
       run: go build -v ./...
 
     - name: Test
-      run: go test -v ./... | grep -v "repository_.go" | -covermode=count -coverprofile=coverage.out
-          go tool cover -func=coverage.out -o=coverage.out
+      run: go test . -coverprofile coverage.out.tmp
+          cat coverage.out.tmp | grep -v "repository_.go" > coverage.out
+          tool cover -func coverage.out -o=coverage.out
 
     - name: Go Coverage Badge
       uses: tj-actions/coverage-badge-go@v1
