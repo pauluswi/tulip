@@ -37,18 +37,18 @@ func TestRepository(t *testing.T) {
 	// get
 	paytoken, err := repo.Get(ctx, "999999")
 	assert.Nil(t, err)
-	assert.Equal(t, "081100099", paytoken.CustomerID)
+	assert.Equal(t, "6281100099", paytoken.CustomerID)
 	_, err = repo.Get(ctx, "999990")
 	assert.Equal(t, sql.ErrNoRows, err)
 
 	// get today token
 	todaytoken, err := repo.GetTodayPayToken(ctx, "999999")
 	assert.Nil(t, err)
-	assert.Equal(t, "081100099", todaytoken.CustomerID)
+	assert.Equal(t, "6281100099", todaytoken.CustomerID)
 	//assert.Equal(t, sql.ErrNoRows, err)
 
 	// get multi token
-	_, err = repo.GetPayTokens(ctx, "081100099")
+	_, err = repo.GetPayTokens(ctx, "6281100099")
 	assert.Nil(t, err)
 	//assert.Equal(t, sql.ErrNoRows, err)
 
