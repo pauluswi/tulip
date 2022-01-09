@@ -22,8 +22,8 @@ func TestAPI(t *testing.T) {
 	header := auth.MockAuthHeader()
 
 	tests := []test.APITestCase{
-		{"get all", "GET", "/getpaytokens/6281100099", "", nil, http.StatusOK, `*"Token":"999999"`},
-		{"get unknown", "GET", "/get/paytokens/6281100099", "", nil, http.StatusNotFound, ""},
+		{"get all", "GET", "/getpaytokens/6281100099", "", header, http.StatusOK, `*"Token":"999999"`},
+		{"get unknown", "GET", "/get/paytokens/62811000991", "", header, http.StatusNotFound, ""},
 		{"generate ok", "POST", "/generate", `{"customer_id":"6281100099"}`, header, http.StatusCreated, "*valid_until*"},
 		{"generate auth error", "POST", "/generate", `{"customer_id":"6281100099"}`, nil, http.StatusUnauthorized, ""},
 		{"generate input error", "POST", "/generate", `"customer_id":"6281100099"}`, header, http.StatusBadRequest, ""},
