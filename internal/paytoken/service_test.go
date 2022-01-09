@@ -22,7 +22,7 @@ func Test_service_TokenCycle(t *testing.T) {
 	ctx := context.Background()
 
 	// token generation
-	paytoken, err := s.Generate(ctx, entity.InputGenerate{CustomerID: "081100099"})
+	paytoken, err := s.Generate(ctx, entity.InputGenerate{CustomerID: "6281100099"})
 	assert.Nil(t, err)
 	assert.NotEmpty(t, paytoken.Token)
 	token := paytoken.Token
@@ -35,7 +35,7 @@ func Test_service_TokenCycle(t *testing.T) {
 	assert.Equal(t, false, val.IsExpired)
 
 	//get all tokens
-	all, err := s.GetPayTokens(ctx, "081100099")
+	all, err := s.GetPayTokens(ctx, "6281100099")
 	assert.Nil(t, err)
 	assert.NotEqual(t, 0, len(all))
 }
@@ -69,7 +69,7 @@ func (m mockRepository) GetTodayPayToken(ctx context.Context, id string) (*entit
 	// build output
 	out := &entity.PayToken{
 		Token:      "111111",
-		CustomerID: "081100099",
+		CustomerID: "6281100099",
 		ValidUntil: validUntil,
 	}
 	if out.Token != "" {
@@ -84,7 +84,7 @@ func (m mockRepository) GetPayTokens(ctx context.Context, customer_id string) ([
 		tok.ID = uuid.NewV4().String()
 		tok.Token = "999999"
 		tok.TokenDate = time.Now()
-		tok.CustomerID = "081100099"
+		tok.CustomerID = "6281100099"
 		tok.ValidUntil = time.Now()
 		tok.CreatedAt = time.Now()
 		tok.UpdatedAt = time.Now()
