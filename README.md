@@ -3,6 +3,7 @@
 Is a microservice which provides payment token service for application users.
 
 ![Build](https://github.com/pauluswi/tulip/actions/workflows/build.yml/badge.svg)
+[![codecov](https://codecov.io/gh/pauluswi/tulip/branch/master/graph/badge.svg)](https://codecov.io/gh/pauluswi/tulip)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
