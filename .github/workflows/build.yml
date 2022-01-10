@@ -23,6 +23,16 @@ jobs:
 
     - name: Test
       run: go test -v ./... | grep -v "repository_.go" 
+      
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+          token: ${{ "debfc1bb-3602-45b8-bdc0-d38b6986231d" }}
+          file: ./coverage.out
+          flags: tests
+          name: codecov-umbrella
+          yml: ./build.yml
+          fail_ci_if_error: true
 
     - name: Go Coverage Badge
       uses: tj-actions/coverage-badge-go@v1
